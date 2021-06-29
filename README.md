@@ -19,4 +19,5 @@ The first time the command is run it will download the image.
 The model was trained on the provided movies datasets. It used the ‘title’ column from the ‘movies_metadata.csv’ and the ‘keywords’ column from the ‘keywords.csv’. The genres were taken from the ‘genres’ column in the ‘movies_metadata.csv’. I trained a multiclassification model with a single label per class. To replicate the training run the provided jupyter notebook which is inside the training folder.
 
 ### Testing
-For testing I created a test_movie_model.py script which runs the infer_movie.py script. The infer_movie.py script is used inside the docker container for deployment. For testing I took data from a new dataset 'IMBd movies.csv' and used this data to test my model.
+For testing I created a test_movie_model.py script which runs the infer_movie.py script. The infer_movie.py script is used inside the docker container for deployment. For testing I took data from a new dataset 'IMBd movies.csv' and used this data to test my model. If you want to rerun testing you first need to rerun training. Then copy the following files and folder to the Test directory. Which are 'Lable_encoder.pickle', 'tokenizer.pickle' and 'movie_genre_model'.
+
