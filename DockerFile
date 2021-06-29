@@ -1,0 +1,24 @@
+FROM python:3.9.5-buster
+
+RUN apt-get update && yes | apt-get upgrade
+
+RUN mkdir -p /app
+
+RUN pip3 install nltk
+RUN pip3 install numpy
+RUN pip3 install pandas
+RUN pip3 install tensorflow
+RUN pip3 install sklearn
+
+WORKDIR /app
+ADD infer_movie.py /app/
+ADD movie_genre_model /app/movie_genre_model
+ADD Label_encoder.pickle /app/
+ADD tokenizer.pickle /app/
+
+ENV title title
+ENV description description
+
+EXPOSE 80
+
+CMD ["python3", "infer_movie.py"," --title {title} --description {description}"]
